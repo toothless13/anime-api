@@ -1,6 +1,9 @@
-const Button = () => {
+const Button = ({ name, endpoint, handleClick, setEndpoint }) => {
+
   return (
-    <div>Button</div>
+    <div onClick={(e) => {handleClick(e); setEndpoint(endpoint);}}>
+      <p>{name}</p>
+    </div>
   )
 }
 

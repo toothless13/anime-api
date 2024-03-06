@@ -1,6 +1,11 @@
-const RandomResult = () => {
+const RandomResult = ({ result, isLoading }) => {
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
   return (
-    <div>RandomResult</div>
+      <div>{result}</div>
   )
 }
 
