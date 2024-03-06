@@ -1,11 +1,14 @@
-const RandomResult = ({ result, isLoading }) => {
+const RandomResult = ({ result, imgUrl, isLoading }) => {
 
   if (isLoading) {
     return <div>Loading...</div>;
   }
 
   return (
-      <div>{result}</div>
+      <div>
+        <h2>{result}</h2>
+        <img src={imgUrl} alt="Image for anime or manga" className="mx-auto mt-4" />
+      </div>
   )
 }
 

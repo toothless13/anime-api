@@ -1,13 +1,21 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import ButtonContainer from "./ButtonContainer"
 import RandomResult from "./RandomResult";
-import TopContainer from "./TopContainer";
+// import TopContainer from "./TopContainer";
 
 const HomePage = () => {
 
   const [result, setResult] = useState();
+  const [imgUrl, setImgUrl] = useState();
   const [endpoint, setEndpoint] = useState("https://api.jikan.moe/v4/random/anime" || "https://api.jikan.moe/v4/random/manga");
+
+  const { data, isLoading, refetch } = useQuery({
+    queryFn: () => fetch(endpoint),
+    queryKey: ["result", { endpoint }],
+    refetchOnWindowFocus: false,
+    // enabled: false
+  });
 
   const handleClick = async e => {
     e.preventDefault();
@@ -16,28 +24,22 @@ const HomePage = () => {
       const response = await data?.json();
       // console.log(response?.data.title);
       setResult(response?.data.title);
+      setImgUrl(response?.data.images.jpg["image_url"]);
     } catch (error) {
       console.log(error.message);
     }
   }
 
-  const { data, isLoading, refetch } = useQuery({
-    queryFn: () => fetch(endpoint),
-    queryKey: [`result`],
-    refetchOnWindowFocus: false,
-    // enabled: false
-  });
-
-  useEffect(() => {
-    setResult("");
-  }, []);
+  // useEffect(() => {
+  //   setResult("");
+  // }, []);
 
   return (
-    <div>
-      <h1>This is the HomePage</h1>
+    <div className="text-center">
+      {/* <h1>This is the HomePage</h1> */}
       <ButtonContainer setResult={setResult} handleClick={handleClick} setEndpoint={setEndpoint}/>
-      <RandomResult result={result} isLoading={isLoading} />
-      <TopContainer />
+      <RandomResult result={result} imgUrl={imgUrl} isLoading={isLoading} />
+      {/* <TopContainer /> */}
     </div>
   )
 }
