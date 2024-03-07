@@ -8,5 +8,3 @@ const Button = ({ name, endpoint, handleClick, setEndpoint }) => {
 }
 
 export default Button
-
-// border-2 border-green-800 cursor-pointer hover:bg-pink-400
