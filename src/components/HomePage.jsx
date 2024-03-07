@@ -8,6 +8,8 @@ const HomePage = () => {
 
   const [result, setResult] = useState();
   const [imgUrl, setImgUrl] = useState();
+  const [link, setLink] = useState();
+  const [synopsis, setSynopsis] = useState();
   const [endpoint, setEndpoint] = useState("https://api.jikan.moe/v4/random/anime" || "https://api.jikan.moe/v4/random/manga");
 
   const { data, isLoading, refetch } = useQuery({
@@ -25,6 +27,8 @@ const HomePage = () => {
       // console.log(response?.data.title);
       setResult(response?.data.title);
       setImgUrl(response?.data.images.jpg["image_url"]);
+      setLink(response?.data.url);
+      setSynopsis(response?.data.synopsis);
     } catch (error) {
       console.log(error.message);
     }
@@ -38,7 +42,7 @@ const HomePage = () => {
     <div className="text-center">
       {/* <h1>This is the HomePage</h1> */}
       <ButtonContainer setResult={setResult} handleClick={handleClick} setEndpoint={setEndpoint}/>
-      <RandomResult result={result} imgUrl={imgUrl} isLoading={isLoading} />
+      <RandomResult result={result} imgUrl={imgUrl} link={link} synopsis={synopsis} isLoading={isLoading} />
       {/* <TopContainer /> */}
     </div>
   )
