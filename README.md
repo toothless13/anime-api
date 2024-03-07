@@ -1,8 +1,15 @@
-# React + Vite
+# Anime API
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+This project sends a GET request to an Anime API (<https://docs.api.jikan.moe/>) and depending on what button is selected, will return either a random Anime or Manga.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Technology
+
+Vite was used to create the React JavaScript project. React Query was used for sending the request to the API. Tailwind CSS was used for styling.
+
+## Improvements
+
+I am planning on adding more functionality to the project, so that you can also access the Top Anime/Manga, then click on them to access further information.
+
+I also intend to improve the styling, and provide more information from the random Anime/Manga that is returned.
