@@ -23,7 +23,7 @@ const ButtonContainer = ({ setResult, handleClick, setEndpoint }) => {
   ];
 
   return (
-    <div className="flex flex-row p-4 w-1/2 justify-center mx-auto">
+    <div className="flex flex-row p-4 w-3/4 md:w-1/2 justify-center mx-auto">
       {/* <h2>ButtonContainer</h2> */}
       {buttons.map(button => <Button name={button.name} endpoint={button.endpoint} key={uuidv4()} setResult={setResult} handleClick={handleClick} setEndpoint={setEndpoint}/>)}
     </div>

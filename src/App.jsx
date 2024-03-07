@@ -9,7 +9,7 @@ const App = () => {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="min-h-screen bg-slate-50 text-slate-950">
+      <div className="min-h-screen bg-pink-200 text-green-800">
         <NavBar />
         <Routes>
           <Route path="/" element={<HomePage />} />

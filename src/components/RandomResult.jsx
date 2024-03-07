@@ -6,8 +6,8 @@ const RandomResult = ({ result, imgUrl, isLoading }) => {
 
   return (
       <div>
-        <h2>{result}</h2>
-        <img src={imgUrl} alt="Image for anime or manga" className="mx-auto mt-4" />
+        <h2 className="text-2xl font-bold">{result}</h2>
+        {imgUrl !== undefined && <img src={imgUrl} alt="Image for anime or manga" className="mx-auto mt-4" />}
       </div>
   )
 }
